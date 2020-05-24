@@ -34,17 +34,27 @@ void draw()
   }
 }
 
-void frame(float TIME) 
-{  
+void bezel(int degree) // 0 is C, 1 is B, 2 is Bb and so on.
+{
   background(240, 240, 240);
   strokeWeight(2);
   ellipse(width/2, height/2, 2 * spokelength, 2 * spokelength);
   ellipse(width/2, height/2, 30, 30);
+    
+  boolean[] use_sharps =    {false, true,  false,  true,  false,  true,  true,   false, true,  false,  true,  true}; 
+  String[] legends_sharps = {"C",   "B",   "A#",   "A",   "G#",   "G",   "F#",   "F",   "E",   "D#",   "D",   "C#"};
+  String[] legends_flats =  {"C",   "B",   "Bb",   "A",   "Ab",   "G",   "Gb",   "F",   "E",   "Eb",   "D",   "Db"};
+  String[] legends;
   
-  String[] legends = {
-  "C", "B", "Bb", "A", "G#", "G", "F#", "F", "E", "Eb", "D", "C#" 
-  };
-  
+  if (use_sharps[degree])
+  {
+    legends = legends_sharps;
+  }
+  else
+  {
+    legends = legends_flats;
+  }
+    
   textSize(32);
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
@@ -56,7 +66,11 @@ void frame(float TIME)
     float y =((height/2) + sin(angle)*(spokelength + 30));
     text(legends[idx], x-5, y-5, 50, 50); 
   }
-  
+}
+
+void frame(float TIME) 
+{  
+  bezel(2);
   fill(255);
   shapes.display(TIME);
 }
