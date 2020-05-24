@@ -4,7 +4,8 @@ class CShapeCollection
   int _steps[] = {2,2,1,2,2,2,1};
   ArrayList<CShape> _shapes;
   int _selector = 5;
-  boolean _pause = true;
+  int _initialpause = 5;
+  int _pause = _initialpause;
   
   // Choose whether to move then pause then move then pause,
   // or for there to be continual movement.
@@ -31,7 +32,7 @@ class CShapeCollection
   
   void changeSelector()
   {
-    if (!_wantpausebehaviour || !_pause)
+    if (!_wantpausebehaviour || _pause == 0)
     {
       CShape shape = _shapes.get(_selector);
       shape.addAngle(PI/6);
@@ -39,11 +40,11 @@ class CShapeCollection
       _selector += 3;
       _selector = _selector % _nshapes;
       
-      _pause = true;
+      _pause = _initialpause;
     }
     else
     {
-      _pause = false;
+      --_pause;
     }
   }
   
@@ -57,7 +58,7 @@ class CShapeCollection
     for (int idx = 0; idx < _nshapes; ++idx)
     {
       float ANGLE = 0;
-      if (idx == _selector && (!_wantpausebehaviour || !_pause))
+      if (idx == _selector && (!_wantpausebehaviour || _pause == 0))
       {
         // Thanks to Matthew for telling me about 'map'.
         // This makes the animated blob accelerate from stationary, 
