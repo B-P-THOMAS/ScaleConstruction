@@ -6,6 +6,10 @@ class CShape
   color _fill;
   color _stroke;
   
+  // CShape is a horizontal spoke with a circular blob 
+  // at the right-hand end. We transform these by rotation
+  // and scaling at display time.
+  //
   CShape(float radius, float angle)
   {
     _fill = color(255,255,0);

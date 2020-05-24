@@ -6,7 +6,8 @@ class CShapeCollection
   int _selector = 5;
   boolean _pause = true;
   
-  // Choose whether to move and then pause, or move continually
+  // Choose whether to move then pause then move then pause,
+  // or for there to be continual movement.
   //
   boolean _wantpausebehaviour = true;
   
@@ -53,9 +54,11 @@ class CShapeCollection
       float ANGLE = 0;
       if (idx == _selector && (!_wantpausebehaviour || !_pause))
       {
-        time = map(cos(time * PI), 1, -1, 0, 1);
-        
-        ANGLE = time * PI/6;
+        // Thanks to Matthew for telling me about 'map'.
+        // This makes the animated blob accelerate from stationary, 
+        // rather than moving at constant speed.
+        //
+        ANGLE = map(cos(time * PI), 1, -1, 0, PI / 6);
       }
 
       CShape shape = _shapes.get(idx);
