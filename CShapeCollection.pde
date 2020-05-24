@@ -19,7 +19,12 @@ class CShapeCollection
     for (int idx = 0; idx < _nshapes; ++idx)
     {
       float deltaangle = _steps[idx] * PI / 6;
-      _shapes.add(new CShape(radius, currentangle + deltaangle));
+      CShape shape = new CShape(radius, currentangle + deltaangle);
+      if (idx == 6)
+      {
+        shape.setFill(color(255,0,0));
+      }
+      _shapes.add(shape);
       currentangle = currentangle + deltaangle;
     }    
   }

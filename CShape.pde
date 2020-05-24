@@ -3,8 +3,6 @@ class CShape
   float _radius;
   float _angle;
   PShape _group;
-  color _fill;
-  color _stroke;
   
   // CShape is a horizontal spoke with a circular blob 
   // at the right-hand end. We transform these by rotation
@@ -12,8 +10,8 @@ class CShape
   //
   CShape(float radius, float angle)
   {
-    _fill = color(255,255,0);
-    _stroke = color(0,0,0);
+    color fill = color(255,255,0);
+    color stroke = color(0,0,0);
     
     _radius = radius;
     _angle = angle;
@@ -28,9 +26,14 @@ class CShape
     _group.addChild(spoke); 
     _group.addChild(spot);
 
-    _group.setFill(_fill);
-    _group.setStroke(_stroke);
+    _group.setFill(fill);
+    _group.setStroke(stroke);
     _group.setStrokeWeight(2);
+  }
+  
+  void setFill(color c)
+  {
+    _group.setFill(c);
   }
   
   void addAngle(float angle)
