@@ -6,6 +6,7 @@ class CShapeCollection
   int _selector = 5;
   int _initialpause = 5;
   int _pause = _initialpause;
+  int _bezelselector = 0;
   
   // Choose whether to move then pause then move then pause,
   // or for there to be continual movement.
@@ -34,6 +35,15 @@ class CShapeCollection
   {
     if (!_wantpausebehaviour || _pause == 0)
     {
+      if (_selector == 6)
+      {
+        _bezelselector ++;
+        if (_bezelselector == 12)
+        {
+          _bezelselector = 0;
+        }
+      }
+      
       CShape shape = _shapes.get(_selector);
       shape.addAngle(PI/6);
       
@@ -55,6 +65,8 @@ class CShapeCollection
       changeSelector();
     }
 
+    bezel(_bezelselector);
+    
     for (int idx = 0; idx < _nshapes; ++idx)
     {
       float ANGLE = 0;

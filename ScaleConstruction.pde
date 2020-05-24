@@ -55,7 +55,7 @@ void bezel(int degree) // 0 is C, 1 is B, 2 is Bb and so on.
     legends = legends_flats;
   }
     
-  textSize(32);
+  textSize(28);
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
   fill(0);
@@ -66,11 +66,11 @@ void bezel(int degree) // 0 is C, 1 is B, 2 is Bb and so on.
     float y =((height/2) + sin(angle)*(spokelength + 30));
     text(legends[idx], x-5, y-5, 50, 50); 
   }
+  
+  fill(255);
 }
 
 void frame(float TIME) 
 {  
-  bezel(2);
-  fill(255);
   shapes.display(TIME);
 }
