@@ -2,6 +2,8 @@
 
 a Processing.org project for animated visualisations of  musical scales and modes
 
+![Initial Appearance](https://github.com/B-P-THOMAS/ScaleConstruction/blob/master/Snap01.png)
+
 This displays a circular pie chart with the names of the 12 notes of the chromatic scale arranged in clockwise order around the outside.
 The initial display has the degrees of the C Major scale indicated by seven small blobs on the circumference of chart circle. 
 As animation progresses, each node in turn is flattened in the order 7 3 6 2 5 1 4
