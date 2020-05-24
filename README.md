@@ -8,6 +8,6 @@ This displays a circular pie chart with the names of the 12 notes of the chromat
 The initial display has the degrees of the C Major scale indicated by seven small blobs on the circumference of the chart circle. 
 As animation progresses, each node in turn is flattened, in this order: 7 3 6 2 5 1 4
 
-At each step it's possible to see that the seqeunce of intervals still represents a major scale - just the starting note has moved.
+At each step it's possible to see that the sequence of intervals still represents a major scale - just the starting note has changed.
 
 This is a visual aid to help with the construction and comprehension of major modes.
